@@ -1,5 +1,5 @@
 {
-    "networks": {
+    "network": {
         "hyperlink": "webchat.esper.net",
         "channels": {
             "chan1": {
