@@ -1,14 +1,14 @@
 {
-    "network": {
-        "hyperlink": "webchat.esper.net",
-        "channels": {
-            "chan1": {
-                "chan": "#littlekitachoirc",
-                "nick": "LittleKitacho's IRC Network",
-                "whitelist": false,
-                "ops": {
-                    "LittleKitacho": "hashed passphrase"
-                }
+    "name": "LKIRCBOT",
+    "realname": "LittleKitacho's IRC Bot",
+    "network": "webchat.esper.net",
+    "channels": {
+        "chan0": {
+            "chan": "#littlekitachoirc",
+            "nick": "LittleKitacho's IRC Network",
+            "whitelist": false,
+            "ops": {
+                "LittleKitacho": "hashed passphrase"
             }
         }
     },
