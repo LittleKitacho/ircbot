@@ -1,2 +1,4 @@
 # ircbot
-A simple IRC bot for channel monitoring.
+An IRC bot made by LittleKitacho
+
+Documentation and usage information for the bot is at the wiki.
