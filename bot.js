@@ -1,7 +1,9 @@
 // Setup Settings
 const fs = require('fs');
-let rawdata = fs.readFileSync("./settings.json");
-let settings = json.parse(rawdata);
+var rawdata = fs.readFileSync("./settings.json");
+var settings = json.parse(rawdata);
+var rawdata = fs.readFileSync("./users.json");
+var userdata = json.parse(rawdata);
 
 // Setup IRC.
 const irc = require('node-irc');
