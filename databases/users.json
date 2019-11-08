@@ -1,6 +1,7 @@
 {
     "LittleKitacho": {
-        "botop": true,
-        "password": "$2y$12$mNXBfq9Z0Kn1unkQUvT9/OyHcFC43Slq833KFzU/g0fIbU/3gYyhm"
+        "level": 0,
+        "points": 0,
+        "botop": "$2y$12$mNXBfq9Z0Kn1unkQUvT9/OyHcFC43Slq833KFzU/g0fIbU/3gYyhm"
     }
 }
