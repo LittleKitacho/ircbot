@@ -1,7 +1,7 @@
 {
     "name": "LKIRCBOT",
     "realname": "LittleKitacho's IRC Bot",
-    "network": "webchat.esper.net",
+    "network": "kiwi.freenode.net",
     "channels": ["#ircbot-testing"],
     "whois": [
         "LKIRCBot is an IRC bot made by LittleKitacho.",

@@ -1,0 +1,10 @@
+{
+    "#ircbot-testing": {
+        "ops": {
+            "LittleKitacho": {
+                "passcode": "add passcode here",
+                "protected": true
+            }
+        }
+    }
+}
