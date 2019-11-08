@@ -9,6 +9,8 @@ let channelsraw = fs.readFileSync(databases+"channels.json");
 let settings = JSON.parse(settingsraw);
 let users = JSON.parse(usersraw);
 let channels = JSON.parse(channelsraw);
+// Temporary dataset
+let temp = {};
 
 // Setup IRC.
 const irc = require('irc');
@@ -24,9 +26,16 @@ bot.on('registered', () =>{
 
 // Join Handler
 bot.on('join', (channel, name, msg) => {
+    if (name == bot.nick) {return;};
     var uid = users.indexOf(name);
     var cid = channels.indexOf(channel);
-    if (users[uid].botop == true) {};
+    if (users[uid].botop != false && temporary.registered.botop[temporary.registered.botop.indexOf(name)].registered) {
+        if (users[uid].botop == true) {
+            bot.notice(name, "You are marked as an operator for this bot, but you do not have a password.  Please use")
+        } else {
+            bot.notice(name, "You have not logged into botop features.  Please '/msg "+bot.nick+" botop identify' with your password.");
+        }
+    };
 });
 
 // Command Handler
