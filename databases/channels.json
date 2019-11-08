@@ -2,7 +2,7 @@
     "#ircbot-testing": {
         "ops": {
             "LittleKitacho": {
-                "passcode": "add passcode here",
+                "passcode": "$2y$12$mNXBfq9Z0Kn1unkQUvT9/OyHcFC43Slq833KFzU/g0fIbU/3gYyhm",
                 "protected": true
             }
         },
