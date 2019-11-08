@@ -5,6 +5,8 @@
                 "passcode": "add passcode here",
                 "protected": true
             }
-        }
+        },
+        "whitelist": true,
+        "allowed": ["LittleKitacho"]
     }
 }
