@@ -1,7 +1,7 @@
 {
     "#ircbot-testing": {
         "ops": {
-            "passwdpolicy": true,
+            "passwdpolicy": false,
             "LittleKitacho": {
                 "passcode": "$2y$12$mNXBfq9Z0Kn1unkQUvT9/OyHcFC43Slq833KFzU/g0fIbU/3gYyhm",
                 "protected": true

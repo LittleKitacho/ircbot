@@ -1,8 +1,8 @@
 {
     "name": "LKIRCBOT",
     "realname": "LittleKitacho's IRC Bot",
-    "network": "kiwi.freenode.net",
-    "channels": ["#ircbot-testing"],
+    "network": "irc.esper.net",
+    "channels": ["#ircbot"],
     "whois": [
         "LKIRCBot is an IRC bot made by LittleKitacho.",
         "LittleKitacho is also the maker of the Ally Discord bot.",
