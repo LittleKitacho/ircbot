@@ -17,19 +17,31 @@ console.log('Got databases.')
 const irc = require('irc');
 const bot = new irc.Client(settings.network, settings.name, [
     realName = settings.realName,
-    channels = [settings.channels]
+    channels = settings.channels
 ]);
 console.log('Bot created.');
 bot.on('registered', () =>{
     console.log('Logged in as '+bot.nick+'.');
     bot._clearWhoisData();
-    bot._addWhoisData(settings.whois)
+    bot._addWhoisData(settings.whois);
+    console.log('Sent WHOIS data.');
+    for (let i = 0; i < settings.channels.length; i++) {
+        try {
+            bot.join(settings.channels[i]);
+            console.log('Sucsessfully joined channel '+settings.channels[i]);
+        } catch(error) {
+            console.log('Error in joining channel: '+settings.channels[i]+"\n"+error);
+        };
+    }
 });
 
 // Join Handler
 bot.on('join', (channel, name, msg) => {
     console.log('Received \'join\' event')
-    if (name == bot.nick) {return;};
+    if (name == bot.nick) {
+        console.log('Self joined.');
+        return;
+    };
     var uid = users.indexOf(name);
     var cid = channels.indexOf(channel);
     if (users[uid].botop != false && temporary.registered.botop[temporary.registered.botop.indexOf(name)].registered) {
@@ -48,11 +60,15 @@ bot.on('join', (channel, name, msg) => {
 // Command Handler
 bot.on('message', (channel, name, msg) => {
     console.log('Received \'message\' event.');
-    // Put message code here.
+    if (!msg.startsWith(settings.prefix)) {
+        console.log('Message is not a command.');
+        return;
+    };
+    let args = msg.slice(1, )
     console.log('Executed \'message\' event.');
 });
 
 // Error handler.
-bot.on('error', () => {
-
+bot.on('error', (error) => {
+    console.log("An error occoured:\n"+error)
 });

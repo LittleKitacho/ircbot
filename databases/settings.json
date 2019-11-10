@@ -1,6 +1,7 @@
 {
     "name": "LKIRCBOT",
     "realname": "LittleKitacho's IRC Bot",
+    "prefix": "irc!",
     "network": "irc.esper.net",
     "channels": ["#ircbot"],
     "whois": [
