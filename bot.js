@@ -42,17 +42,24 @@ bot.on('join', (channel, name, msg) => {
         console.log('Self joined.');
         return;
     };
-    var uid = users.indexOf(name);
-    var cid = channels.indexOf(channel);
-    if (users[uid].botop != false && temporary.registered.botop[temporary.registered.botop.indexOf(name)].registered) {
+    var uid = users.findIndex(name);
+    var cid = channels.findIndex(channel);
+    if (users[uid].botop != false && !temporary.registered.botop[temporary.registered.botop.findIndex(name)].registered) {
         if (users[uid].botop == true) {
             bot.notice(name, "You are marked as an operator for this bot, but you do not have a password.  Please use '/msg "+bot.nick+" botop register' with your new password to gain access to botop features.")
         } else {
             bot.notice(name, "You are not logged into botop features.  Please '/msg "+bot.nick+" botop identify' with your password.");
         }
     };
-    if (channel[cid].ops.indexOf(nick) > -1) {
-        var opid = channel[cid].ops.indexOf(nick);
+    if (channels[cid].ops.findIndex(nick) > -1) {
+        var opid = channels[cid].ops.findIndex(nick);
+
+    } else if (channels[cid].whitelist = true) {
+        if (channels[cid].allowed.findIndex(nick) == true) {
+            bot.notice(nick, 'Whitelist is enabled for this channel, but you are allowed in.')
+        } else {
+            bot.say(channel, "/kick "+nick)
+        }
     }
     console.log('Executed \'join\' event.')
 });
