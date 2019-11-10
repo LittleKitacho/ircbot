@@ -39,7 +39,7 @@ bot.on('registered', () =>{
 bot.on('join', (channel, name, msg) => {
     console.log('Received \'join\' event')
     if (name == bot.nick) {
-        console.log('Self joined.');
+        console.log('Self-triggered, returning.');
         return;
     };
     var uid = users.findIndex(name);
@@ -68,11 +68,24 @@ bot.on('join', (channel, name, msg) => {
 bot.on('message', (channel, name, msg) => {
     console.log('Received \'message\' event.');
     if (!msg.startsWith(settings.prefix)) {
-        console.log('Message is not a command.');
+        console.log('Message is not a command.  Exiting');
         return;
     };
-    let args = msg.slice(1, )
+    var command;
+    command.arguments = msg.slice(0, settings.prefix.length);
+    command = command.arguments.shift();
+    if (command == "botop") {
+        bot.say(channel, "Please use this command with '/msg'!");
+    } else if (command == "chanop") {
+        bot.say(channel, "Please use this command with '/msg'!");
+    } else {
+        bot.say(channel, "I don't recognize that command.")
+    };
     console.log('Executed \'message\' event.');
+});
+
+bot.on('nicks', (channel, nicks) => {
+    console.log(nicks)
 });
 
 // Error handler.
