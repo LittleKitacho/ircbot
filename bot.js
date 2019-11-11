@@ -46,9 +46,12 @@ bot.on('join', (channel, name, msg) => {
     var cid = channels.findIndex(channel);
     if (users[uid].botop != false && !temporary.registered.botop[temporary.registered.botop.findIndex(name)].registered) {
         if (users[uid].botop == true) {
-            bot.notice(name, "You are marked as an operator for this bot, but you do not have a password.  Please use '/msg "+bot.nick+" botop register' with your new password to gain access to botop features.")
+            bot.notice(name, "You are marked as an operator for this bot, but you do not\
+            have a password.  Please use '/msg "+bot.nick+" botop register' with your\
+            new password to gain access to botop features.")
         } else {
-            bot.notice(name, "You are not logged into botop features.  Please '/msg "+bot.nick+" botop identify' with your password.");
+            bot.notice(name, "You are not logged into botop features.  Please\
+            '/msg"+bot.nick+" botop identify' with your password.");
         }
     };
     if (channels[cid].ops.findIndex(nick) > -1) {
@@ -56,8 +59,10 @@ bot.on('join', (channel, name, msg) => {
 
     } else if (channels[cid].whitelist = true) {
         if (channels[cid].allowed.findIndex(nick) == true) {
-            bot.notice(nick, 'Whitelist is enabled for this channel, but you are allowed in.')
+            bot.notice(nick, 'Whitelist is enabled for this channel, but you are allowed\
+            in.')
         } else {
+            bot.say(nick, "You are not whitelisted for this channel.")
             bot.say(channel, "/kick "+nick)
         }
     }
